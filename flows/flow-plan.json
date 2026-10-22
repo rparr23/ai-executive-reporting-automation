@@ -1,0 +1,53 @@
+{
+  "artifact_type": "implementation_specification_not_importable_export",
+  "project": "AI Business Reporting and Executive Dashboard",
+  "actions": [
+    {
+      "order": 1,
+      "action": "Recurrence trigger",
+      "configuration": "Set tenant-approved timezone and cadence; no schedule is activated by this repository."
+    },
+    {
+      "order": 2,
+      "action": "Refresh semantic model",
+      "configuration": "Request refresh and poll refresh history until completion; fail or time out before querying stale results."
+    },
+    {
+      "order": 3,
+      "action": "Execute approved DAX",
+      "configuration": "Query only agreed measures and explicit reporting period. Check API errors and empty/null results; attach refresh ID and data timestamp."
+    },
+    {
+      "order": 4,
+      "action": "Reconcile KPI values",
+      "configuration": "Compare row counts and totals to source checksums and control totals. Never ask an LLM to calculate money."
+    },
+    {
+      "order": 5,
+      "action": "Generate narrative",
+      "configuration": "Provide only validated KPI JSON, period, units and null semantics. Require observations and recommendations to be separate. Block invented numbers in review."
+    },
+    {
+      "order": 6,
+      "action": "Start and wait for an approval",
+      "configuration": "Reviewer compares narrative to the KPI table and approves the exact report version."
+    },
+    {
+      "order": 7,
+      "action": "Recipient gate and delivery",
+      "configuration": "Intersect requested recipients with an administrator-owned allowlist. Reserve delivery key, send through Outlook, persist reference; reconcile uncertain sends."
+    },
+    {
+      "order": 8,
+      "action": "Audit and failure",
+      "configuration": "Capture refresh ID, correlation ID, report hash and delivery status. Missing data or failed refresh => no email; alert the owner."
+    }
+  ],
+  "connection_references": "Create and bind in the target tenant",
+  "retry_policy": {
+    "transient_only": true,
+    "max_attempts": 3,
+    "respect_retry_after": true,
+    "ambiguous_remote_write": "reconcile_before_retry"
+  }
+}

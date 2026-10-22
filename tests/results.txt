@@ -1,0 +1,14 @@
+Executed 2026-10-22 on Python 3.12; synthetic data; no Microsoft tenant calls.
+test_approval_and_allowlist_and_duplicate_queue (test_app.ReportingTests.test_approval_and_allowlist_and_duplicate_queue) ... ok
+test_duplicate_transactions_block (test_app.ReportingTests.test_duplicate_transactions_block) ... ok
+test_html_escapes_source_text (test_app.ReportingTests.test_html_escapes_source_text) ... ok
+test_invalid_source_values_block (test_app.ReportingTests.test_invalid_source_values_block) ... ok
+test_known_totals_reconcile (test_app.ReportingTests.test_known_totals_reconcile) ... ok
+test_missing_period_blocks (test_app.ReportingTests.test_missing_period_blocks) ... ok
+test_narrative_uses_calculated_data (test_app.ReportingTests.test_narrative_uses_calculated_data) ... ok
+test_no_resolved_records_returns_null (test_app.ReportingTests.test_no_resolved_records_returns_null) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK

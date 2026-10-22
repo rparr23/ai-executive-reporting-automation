@@ -1,0 +1,11 @@
+// Import Transactions with correctly typed columns. Apply reporting-period filters using Dates.
+Revenue = SUM(Transactions[revenue])
+Operational Cost = SUM(Transactions[cost])
+Transactions Count = COUNTROWS(Transactions)
+Average Order Value = DIVIDE([Revenue], [Transactions Count])
+Resolved Transactions = CALCULATE(COUNTROWS(Transactions), Transactions[resolved] = 1)
+Average Resolution Hours = CALCULATE(AVERAGE(Transactions[resolution_hours]), Transactions[resolved] = 1)
+Cost Per Transaction = DIVIDE([Operational Cost], [Transactions Count])
+Automation Success Rate = DIVIDE(SUM(Transactions[automation_success]), [Transactions Count])
+Revenue Previous Month = CALCULATE([Revenue], DATEADD(Dates[Date], -1, MONTH))
+Revenue Growth = DIVIDE([Revenue] - [Revenue Previous Month], [Revenue Previous Month])

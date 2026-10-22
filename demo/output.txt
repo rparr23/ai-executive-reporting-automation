@@ -1,0 +1,42 @@
+Executed local reference walkthrough; no Microsoft delivery.
+
+$ python3 src/app.py --period 2026-10 --html demo/report.html
+{
+  "kpis": {
+    "period": "2026-10",
+    "transactions": 4,
+    "revenue": "4000.00",
+    "cost": "400.00",
+    "average_order_value": "1000.00",
+    "resolved": 3,
+    "average_resolution_hours": "3.00",
+    "cost_per_transaction": "100.00",
+    "automation_success_rate": "75.00"
+  },
+  "narrative": "2026-10: revenue 4000.00 USD across 4 transactions. Average order value 1000.00 USD. Resolved 3 service transactions. Automation success 75.00%.",
+  "html": "demo/report.html"
+}
+
+
+
+$ python3 src/app.py --period 2026-10 --approve --recipient reviewer@example.invalid --html demo/report.html
+{
+  "kpis": {
+    "period": "2026-10",
+    "transactions": 4,
+    "revenue": "4000.00",
+    "cost": "400.00",
+    "average_order_value": "1000.00",
+    "resolved": 3,
+    "average_resolution_hours": "3.00",
+    "cost_per_transaction": "100.00",
+    "automation_success_rate": "75.00"
+  },
+  "narrative": "2026-10: revenue 4000.00 USD across 4 transactions. Average order value 1000.00 USD. Resolved 3 service transactions. Automation success 75.00%.",
+  "html": "demo/report.html",
+  "queue": {
+    "report_id": "abeb2b728bb6ff8dd482b74b96c7ce05df622386b2e56d28b38c7a03fa3ff088",
+    "duplicate": false,
+    "delivery": "local_outbox_only"
+  }
+}
